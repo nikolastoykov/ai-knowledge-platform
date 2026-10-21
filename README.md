@@ -17,7 +17,7 @@ An asynchronous FastAPI backend for document ingestion, hybrid search, retrieval
 - **Reranking:** score search candidates with a language model and filter them by relevance.
 - **Grounded answers:** return answers alongside retrieved source chunks, with a fallback when no relevant sources remain.
 - **Managed RAG:** upload files to hosted vector stores, search them, and answer questions with file search.
-- **AI utilities:** summarize text, rewrite tone, classify support tickets, generate embeddings, and compare text similarity.
+- **AI utilities:** generate and summarize text, rewrite tone, classify support tickets, generate embeddings, and compare text similarity.
 - **Tool-calling agents:** look up demo customers and orders through reusable tool definitions.
 - **RAG evaluations:** measure retrieval accuracy and answer quality, including model-based correctness and grounding checks.
 
@@ -155,13 +155,11 @@ All routes below use `POST`. Request schemas are available in the interactive AP
 | Managed RAG | `/managed-rag/ingest`, `/managed-rag/search`, `/managed-rag/answer` |
 | Semantic search | `/search/documents`, `/search/documents/batch`, `/search/query` |
 | Embeddings | `/ai/embed`, `/ai/similarity` |
-| Text utilities | `/ai/summarize`, `/ai/rewrite`, `/ai/classify-ticket` |
+| Text utilities | `/ai/generate`, `/ai/summarize`, `/ai/rewrite`, `/ai/classify-ticket` |
 | Assistants | `/ai/order-assistant`, `/agent/run` |
 | Evaluations | `/evals/rag-retrieval`, `/evals/rag-answers` |
 
 For managed ingestion, `file_path` refers to a file accessible to the API server. The sample file `app/managed_demo.txt` can be used with `/managed-rag/ingest`.
-
-The prototype also includes `/ai/generate`; that route still uses an older provider call signature and needs updating before use.
 
 ## Evaluations
 
